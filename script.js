@@ -1,21 +1,25 @@
 
-const btn=document.getElementById("themeBtn");
+const resetBtn = document.getElementById("resetBtn");
+const counterEl = document.getElementById("counter");
 
-if(localStorage.getItem("theme")==="dark"){
-    document.body.classList.add("dark");
-    btn.textContent="Light Mode";
+let count = 0;
+
+function randomColor(){
+    const r = Math.floor(Math.random()*256);
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
-btn.addEventListener("click",()=>{
+colorBtn.addEventListener("click", () => {
+    document.body.style.backgroundColor = randomColor();
+    count++;
+    counterEl.textContent = `Clicked ${count} times`;
+});
 
-    document.body.classList.toggle("dark");
-
-    if(document.body.classList.contains("dark")){
-        btn.textContent="Light Mode";
-        localStorage.setItem("theme","dark");
-    }else{
-        btn.textContent="Dark Mode";
-        localStorage.setItem("theme","light");
-    }
-
+resetBtn.addEventListener("click", () => {
+    document.body.style.backgroundColor = "#0f172a";
+    count = 0;
+    counterEl.textContent = `Clicked ${count} times`;
 });
