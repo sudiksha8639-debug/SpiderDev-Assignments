@@ -1,21 +1,18 @@
 
 body{
+    font-family:Arial,sans-serif;
     text-align:center;
-    font-family:Arial;
     margin-top:100px;
+    transition:.3s;
 }
 
-input{
-    padding:10px;
-    font-size:18px;
+.dark{
+    background:#222;
+    color:white;
 }
 
 button{
-    padding:10px 20px;
+    padding:12px 25px;
     font-size:18px;
-    margin-left:10px;
-}
-
-h2{
-    margin-top:30px;
+    cursor:pointer;
 }

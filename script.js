@@ -1,32 +1,21 @@
 
-function calculate(){
+const btn=document.getElementById("themeBtn");
 
-    const marks=Number(document.getElementById("marks").value);
-
-    const result=document.getElementById("result");
-
-    let grade="";
-    let status="";
-
-    if(marks>=90 && marks<=100){
-        grade="A";
-    }
-    else if(marks>=75){
-        grade="B";
-    }
-    else if(marks>=60){
-        grade="C";
-    }
-    else{
-        grade="D";
-    }
-
-    if(marks>=60){
-        status="Pass";
-    }else{
-        status="Fail";
-    }
-
-    result.textContent=`Grade : ${grade} | ${status}`;
-
+if(localStorage.getItem("theme")==="dark"){
+    document.body.classList.add("dark");
+    btn.textContent="Light Mode";
 }
+
+btn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        btn.textContent="Light Mode";
+        localStorage.setItem("theme","dark");
+    }else{
+        btn.textContent="Dark Mode";
+        localStorage.setItem("theme","light");
+    }
+
+});
