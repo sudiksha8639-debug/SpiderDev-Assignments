@@ -1,32 +1,32 @@
 
-const count=document.getElementById("count");
+function calculate(){
 
-const inc=document.getElementById("inc");
-const dec=document.getElementById("dec");
-const reset=document.getElementById("reset");
+    const marks=Number(document.getElementById("marks").value);
 
-let value=0;
+    const result=document.getElementById("result");
 
-inc.addEventListener("click",()=>{
+    let grade="";
+    let status="";
 
-    value++;
-    count.textContent=value;
-
-});
-
-dec.addEventListener("click",()=>{
-
-    if(value>0){
-        value--;
+    if(marks>=90 && marks<=100){
+        grade="A";
+    }
+    else if(marks>=75){
+        grade="B";
+    }
+    else if(marks>=60){
+        grade="C";
+    }
+    else{
+        grade="D";
     }
 
-    count.textContent=value;
+    if(marks>=60){
+        status="Pass";
+    }else{
+        status="Fail";
+    }
 
-});
+    result.textContent=`Grade : ${grade} | ${status}`;
 
-reset.addEventListener("click",()=>{
-
-    value=0;
-    count.textContent=value;
-
-});
+}
